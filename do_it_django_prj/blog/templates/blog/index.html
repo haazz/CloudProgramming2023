@@ -8,7 +8,7 @@
     <h1>Blog</h1>
 {% for  p in posts %}
     <hr/>
-    <h2>{{ post.title }} : {{ p.pk }}</h2>
+    <h2>{{ p.title }} : {{ p.pk }}</h2>
     <h4>{{ p.created_at }}</h4>
     <p>{{ p.content }}</p>
 {% endfor %}
