@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Blog</title>
 </head>
 <body>
-    <h1>Blog</h1>
-{% for  p in posts %}
+<h1>Blog</h1>
+
+{% for p in posts %}
     <hr/>
-    <h2>{{ post.title }} : {{ p.pk }}</h2>
-    <h4>{{ p.created_at }}</h4>
+    <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a> </h2>
+    <h4>{{ p.created }}</h4>
     <p>{{ p.content }}</p>
 {% endfor %}
 </body>
