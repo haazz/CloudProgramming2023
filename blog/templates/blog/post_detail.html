@@ -74,10 +74,9 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="card-img-top" src="{{ post.head_image.url }}" alt="Card image cap">
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-
+        {% if post.head_image %}
+            <img class="card-img-top" src="{{ post.head_image.url }}" alt="Card image cap">
+        {% endif %}
         <hr>
 
         <!-- Post Content -->
@@ -89,7 +88,13 @@
         {% endif %}
 
         <hr>
-
+        {% if post.tag.exists %}
+            <i class="fas fa-tags">
+            {% for tag in post.tag.iterator %}
+                <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+            {% endfor %}
+            </i>
+        {% endif %}
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
