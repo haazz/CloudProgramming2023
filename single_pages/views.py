@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from blog.models import Post
+
+
 def landing(request):
     return render(
         request,
@@ -12,5 +15,9 @@ def about_me(request):
         'single_pages/about_me.html'
     )
 def main(request):
+    recent_posts = Post.objects.order_by('-pk')[:3]
 
-    return render(request, 'single_pages/main.html')
+    return render(request, 'single_pages/main.html',
+                  {
+                      'recent_posts': recent_posts,
+                  })
