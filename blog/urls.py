@@ -9,4 +9,5 @@ urlpatterns = [
     path('category/<str:slug>/', views.categories_page),
     path('category/no-category/', views.categories_page),
     path('tag/<str:slug>/', views.tags_page),
+    path('update_post/<int:pk>/', views.PostUpdate.as_view()),
 ]
